@@ -1,12 +1,12 @@
 ### How does human face mask detector work?
- - ![explanaition](screen.png)
+ - ![Mask Detector Phases](face_mask_detection_phases.png)
 
  - Result of human face detector
  ![https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg](mask-ouput.png)
 ![https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_151355-5475.jpg](mask_screenshot.png)
 ![https://minds-africa.org/wp-content/uploads/2019/11/sellasie-1038x890.jpg](withoutmask_screenshot.png)
 
- - reference for images: [First Pictures](https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg), [second Picture](https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_) and [Third Picture](https://minds-africa.org/wp-content/uploads/2019/11/sellasie-1038x890.jpg)
+ - reference for images: [First Picture](https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg) and [second Picture](https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_)
 
 
 ### Install dependencies
