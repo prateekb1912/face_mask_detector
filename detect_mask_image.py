@@ -1,11 +1,14 @@
 # Importing the necessary packages
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
+
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 import numpy as np
 import argparse
 import cv2
-import os
 
 # Constructing the argument parser
 ap = argparse.ArgumentParser()
@@ -20,9 +23,8 @@ ap.add_argument("-m", "--model", type=str,
 
 args = vars(ap.parse_args())
 
-
 # Loading our serialized face detector model from disk
-print("[INFO] Loading face detectot model...")
+print("[INFO] Loading face detector model...")
 protoTxtPath = os.path.sep.join([args["face"], "deploy.prototxt"])
 weightsPath = os.path.sep.join([args["face"],
     "res10_300x300_ssd_iter_140000.caffemodel"])
@@ -47,6 +49,7 @@ print("[INFO] Computing face detections...")
 net.setInput(blob)
 detections = net.forward()
 
+
 # Loop over the detections
 for i in range(0, detections.shape[2]):
     # Extract the confidence (i.e. probability) associated with
@@ -55,6 +58,7 @@ for i in range(0, detections.shape[2]):
 
     # Filter out weak detections by ensuring confidence is 
     # greater than the minimum confidence
+    
     if confidence > 0.5:
         # Compute the (x, y)-coordinates of the bounding box for
         # the object
