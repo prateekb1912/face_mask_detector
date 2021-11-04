@@ -12,8 +12,8 @@ import cv2
 
 # Constructing the argument parser
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True,
-	help="path to input image")
+# ap.add_argument("-i", "--image", required=True,
+# 	help="path to input image")
 ap.add_argument("-f", "--face", type=str,
 	default="face_detector",
 	help="path to face detector model directory")
@@ -22,12 +22,6 @@ ap.add_argument("-m", "--model", type=str,
 	help="path to trained face mask detector model")
 
 args = vars(ap.parse_args())
-
-# Loading our serialized face detector model from disk
-print("[INFO] Loading face detector model...")
-
-# Load the face mask detector model from disk
-print("[INFO] Loading the face mask detector model...")
 
 class MaskDetection:
     def __init__(self):
@@ -40,9 +34,6 @@ class MaskDetection:
         self.detections = None
     
     def preprocess_image(self, image):
-        orig = image.copy()
-        (h,w) = image.shape[:2]
-
         # Construct a blob from the image
         blob = cv2.dnn.blobFromImage(image, 1.0, (300, 300), (104.0, 177.0, 123.0))
 
@@ -53,6 +44,7 @@ class MaskDetection:
         self.detections = self.net.forward()
 
     def process_detections(self, image):
+        h,w = image.shape[:2]
         # Loop over the detections
         for i in range(0, self.detections.shape[2]):
             # Extract the confidence (i.e. probability) associated with
@@ -88,24 +80,22 @@ class MaskDetection:
 
                 # Determine the class label and color we'll use to draw 
                 # the bounding box and text
-                label = "Mask" if mask > withoutMask else "No Mask"
-                color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
+                label =  mask > withoutMask
 
                 # Include the probability in the label
-                label = "{} : {:.2f}".format(label, max(mask, withoutMask)*100)
+                pred_prob = max(mask, withoutMask)
 
-                # Display the label and bounding box rectangle on the ouput frame
-                cv2.putText(image, label, (startX, startY-10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
-                cv2.rectangle(image, (startX, startY), (endX, endY), color, 2)
+                # Return the predicted label and the bounding box co-ordinates
+                return label, pred_prob, ((startX, startY), (endX, endY))
+                
+
+# cv2.putText(image, label, (startX, startY-10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
+# cv2.rectangle(image, , color, 2)
 
 # Load the input image from disk, clone it, and grab the image
 # spatial dimensions
-image = cv2.imread(args["image"])
+image = cv2.imread('images_used/Friendsphoebe.jpg')
 
-
-
-
-
-# Show the output image
-cv2.imshow("Ouput", image)
-cv2.waitKey(0)
+detector = MaskDetection()
+detector.preprocess_image(image)
+print(detector.process_detections(image))
