@@ -1,12 +1,12 @@
 ### How does human face mask detector work?
- - ![Mask Detector Phases](face_mask_detection_phases.png)
+ - ![Mask Detector Phases](images_used/face_mask_detection_phases.png)
 
  - Result of human face detector
- ![https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg](mask-ouput.png)
-![https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_151355-5475.jpg](mask_screenshot.png)
-![https://minds-africa.org/wp-content/uploads/2019/11/sellasie-1038x890.jpg](img1.PNG)
+ ![https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg](images_used/mask-ouput.png)
+![https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_151355-5475.jpg](images_used/mask_screenshot.png)
+![https://minds-africa.org/wp-content/uploads/2019/11/sellasie-1038x890.jpg](images_used/img1.PNG)
 
- - reference for images: [First Picture](https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg) and [second Picture](https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_)
+ - reference for images: [First Picture](https://d3fa68hw0m2vcc.cloudfront.net/563/195539828.jpeg) and [Second Picture](https://image.freepik.com/free-photo/african-american-young-volunteer-woman-wearing-face-mask-outdoors-coronavirus-quarantine-global-pandemic_)
 
 
 ### Install dependencies
@@ -41,7 +41,7 @@ cd humanface-mask-detector
  ```
  - History ploted
 
-![History of training and validation stage](ploted.png)
+![History of training and validation stage](images_used/ploted.png)
 
 ### Credit
  - The dataset was created by : [Prajna Bhandary](https://lnkd.in/fJTAP_D) - [Adrian Rosebrock](https://www.pyimagesearch.com/2020/05/04/covid-19-face-mask-detector-with-opencv-keras-tensorflow-and-deep-learning/)
