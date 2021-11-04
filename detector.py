@@ -10,11 +10,11 @@ import cv2
 
 class MaskDetection:
     def __init__(self):
-        self.protoTxtPath = os.path.sep.join([args["face"], "deploy.prototxt"])
-        self.weightsPath = os.path.sep.join([args["face"], "res10_300x300_ssd_iter_140000.caffemodel"])
+        self.protoTxtPath = os.path.sep.join(["face_detector","deploy.prototxt"])
+        self.weightsPath = os.path.sep.join(["face_detector", "res10_300x300_ssd_iter_140000.caffemodel"])
 
         self.net = cv2.dnn.readNet(self.protoTxtPath, self.weightsPath)
-        self.model = load_model(args["model"])
+        self.model = load_model("mask_detector.model")
 
         self.detections = None
     
