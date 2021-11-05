@@ -19,7 +19,6 @@ detector.preprocess_image(image)
 
 label, prob, bbox = detector.process_detections(image)
 
-
 (startX, startY), (endX, endY) = bbox
 color = (0, 255 ,0) if label else (0, 0, 255)
 textLabel = "Mask Detected" if label else "No Mask"

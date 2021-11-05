@@ -148,6 +148,3 @@ model.save(args["model"], save_format="h5")
 
 # Show a nicely formatted classification report
 print(classification_report(testY.argmax(axis = 1), predIdxs, target_names=lb.classes_))
-
-
-
