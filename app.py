@@ -17,9 +17,9 @@ def upload_predict():
             image_file.save(img_loc)
             
             pred = predict_image(img_loc)
-            return render_template('index.html', prediction = pred)
+            return render_template('index.html', prediction = pred, image_file = image_file.filename)
 
-    return render_template('index.html', prediction = 0)
+    return render_template('index.html', prediction = 0, image_file = None)
 
 
 def predict_image(img_file):
