@@ -21,8 +21,8 @@
         <button class="w-100 btn btn-lg btn-primary btn-block" type="submit">Predict</button>
         <br>
         {% if image_file %}
-            <img class = 'mb-4' src = "static/{{image_file}}">
-            <h3 class='h3 mb-3 fw-normal'>Prediction: {{prediction}}</h3>
+        <img class='mb-4' src="static/{{image_file}}" height="256" width="256">
+        <h3 class='h3 mb-3 fw-normal'>Prediction: {{prediction}}</h3>
         {% endif %}
     </form>
 </body>
